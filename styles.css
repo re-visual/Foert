@@ -123,9 +123,8 @@ img { max-width: 100%; display: block; }
   background: var(--brand);
   color: var(--white);
   border-radius: 10px;
-  font-family: "Fraunces", serif;
-  font-size: 1.3rem;
 }
+.logo-mark svg { width: 22px; height: 22px; }
 .logo-text {
   font-family: "Fraunces", serif;
   font-size: 1.4rem;
@@ -498,6 +497,33 @@ img { max-width: 100%; display: block; }
 .stars { color: var(--brand); letter-spacing: 2px; margin-bottom: 10px; font-size: 1.1rem; }
 .review p { font-size: 1.05rem; }
 .review cite { color: var(--muted); font-style: normal; font-weight: 600; }
+
+/* eerlijke 'net gestart' reviews-tekst */
+.reviews-new {
+  max-width: 660px;
+  margin: 0 auto;
+  text-align: center;
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 36px 30px;
+  box-shadow: var(--shadow);
+}
+.reviews-new p { color: var(--muted); margin: 0 0 16px; }
+.reviews-new .btn { margin-top: 8px; }
+
+/* 'binnenkort beelden' regel bij voor & na */
+.coming-soon {
+  text-align: center;
+  color: var(--muted);
+  background: var(--paper-2);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 26px 24px;
+  max-width: 660px;
+  margin: 0 auto;
+  font-weight: 500;
+}
 
 /* ---------- FAQ ---------- */
 .faq-wrap { max-width: 760px; }
