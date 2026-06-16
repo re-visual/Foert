@@ -78,11 +78,15 @@ img { max-width: 100%; display: block; }
 .btn:active { transform: translateY(1px); }
 
 .btn-primary {
-  background: var(--brand);
+  background: linear-gradient(135deg, #ff6a30, var(--brand-dark));
   color: var(--white);
   box-shadow: 0 10px 24px rgba(255, 90, 31, .35);
 }
-.btn-primary:hover { background: var(--brand-dark); transform: translateY(-2px); }
+.btn-primary:hover {
+  background: linear-gradient(135deg, var(--brand), #cf3d09);
+  transform: translateY(-2px);
+  box-shadow: 0 14px 30px rgba(255, 90, 31, .42);
+}
 
 .btn-ghost {
   background: transparent;
@@ -98,9 +102,11 @@ img { max-width: 100%; display: block; }
   position: sticky;
   top: 0;
   z-index: 50;
-  background: rgba(255, 255, 255, .88);
-  backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, .82);
+  backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--line);
+  border-top: 3px solid transparent;
+  border-image: linear-gradient(90deg, var(--brand), #ffb38f) 1;
 }
 .header-inner {
   display: flex;
@@ -161,13 +167,26 @@ img { max-width: 100%; display: block; }
 
 /* ---------- HERO ---------- */
 .hero {
+  position: relative;
+  overflow: hidden;
   background:
-    radial-gradient(1000px 480px at 88% -8%, rgba(255,90,31,.18), transparent 60%),
-    radial-gradient(700px 420px at -5% 0%, rgba(21,23,28,.05), transparent 55%),
-    var(--paper);
-  padding: clamp(52px, 8vw, 104px) 0;
+    radial-gradient(1100px 520px at 85% -10%, rgba(255,90,31,.16), transparent 60%),
+    radial-gradient(820px 480px at -8% 8%, rgba(21,23,28,.06), transparent 55%),
+    linear-gradient(180deg, #ffffff 0%, #fafbfd 100%);
+  padding: clamp(52px, 8vw, 110px) 0;
 }
-.hero-inner { max-width: 840px; }
+/* fijn stippenpatroon dat zacht wegvaagt naar de hoek */
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(rgba(21,23,28,.06) 1px, transparent 1px);
+  background-size: 22px 22px;
+  -webkit-mask-image: radial-gradient(760px 460px at 82% 4%, #000, transparent 72%);
+  mask-image: radial-gradient(760px 460px at 82% 4%, #000, transparent 72%);
+  pointer-events: none;
+}
+.hero-inner { position: relative; z-index: 1; max-width: 840px; }
 .hero h1 {
   font-size: clamp(2.5rem, 6.6vw, 4.6rem);
   margin-bottom: .25em;
@@ -210,7 +229,8 @@ img { max-width: 100%; display: block; }
   gap: 10px;
   padding: 28px 22px;
 }
-.stat { text-align: center; padding: 6px 8px; }
+.stat { text-align: center; padding: 6px 18px; border-right: 1px solid var(--line); }
+.stat:last-child { border-right: 0; }
 .stat-num {
   display: block;
   font-family: "Fraunces", serif;
@@ -259,6 +279,8 @@ img { max-width: 100%; display: block; }
   gap: 20px;
 }
 .card {
+  position: relative;
+  overflow: hidden;
   background: var(--white);
   border: 1px solid var(--line);
   border-radius: var(--radius);
@@ -266,7 +288,18 @@ img { max-width: 100%; display: block; }
   box-shadow: var(--shadow);
   transition: transform .15s ease, box-shadow .15s ease;
 }
+.card::after {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--brand), #ffb38f);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform .25s ease;
+}
 .card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+.card:hover::after { transform: scaleX(1); }
 .card-icon {
   font-size: 1.6rem;
   width: 54px; height: 54px;
@@ -290,12 +323,21 @@ img { max-width: 100%; display: block; }
   border-radius: var(--radius);
   display: grid;
   place-items: center;
+  align-content: center;
+  gap: 10px;
   text-align: center;
   font-weight: 600;
   color: var(--muted);
   position: relative;
-  padding: 20px;
+  padding: 24px;
+  background:
+    radial-gradient(120% 80% at 50% 0%, rgba(255,90,31,.10), transparent 60%),
+    linear-gradient(160deg, #ffffff, var(--paper-2));
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow);
 }
+.who-img-emoji { font-size: 2.4rem; }
+.who-img-text { font-size: .95rem; }
 .who-text h2 { font-size: clamp(1.8rem, 4vw, 2.6rem); }
 .who-text > p { color: var(--muted); }
 .who-text > p strong { color: var(--ink); }
@@ -376,7 +418,15 @@ img { max-width: 100%; display: block; }
 .why-item p { margin: 0; color: var(--muted); }
 
 /* ---------- REGIO ---------- */
-.section-region { background: var(--ink); color: var(--white); }
+.section-region { position: relative; overflow: hidden; background: var(--ink); color: var(--white); }
+.section-region::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(620px 320px at 92% 0%, rgba(255,90,31,.20), transparent 60%);
+  pointer-events: none;
+}
+.section-region .container { position: relative; z-index: 1; }
 .section-region .eyebrow { color: #ff9d73; }
 .section-region .section-foot { color: #c7ccd6; }
 .region-grid {
@@ -557,7 +607,15 @@ img { max-width: 100%; display: block; }
 .faq p { margin: 0 0 16px; color: var(--muted); }
 
 /* ---------- CONTACT ---------- */
-.section-contact { background: var(--ink); color: var(--white); }
+.section-contact { position: relative; overflow: hidden; background: var(--ink); color: var(--white); }
+.section-contact::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(640px 340px at 10% 100%, rgba(255,90,31,.18), transparent 60%);
+  pointer-events: none;
+}
+.section-contact .container { position: relative; z-index: 1; }
 .section-contact .eyebrow { color: #ff9d73; }
 .contact-grid {
   display: grid;
@@ -637,6 +695,15 @@ img { max-width: 100%; display: block; }
 .footer-meta a { color: var(--brand); text-decoration: none; font-weight: 700; }
 .footer-small { font-size: .85rem; color: #7b828f; margin: 0; }
 
+/* ---------- SCROLL-REVEAL (subtiel verschijnen bij scrollen) ---------- */
+.reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity .6s ease, transform .6s ease;
+  will-change: opacity, transform;
+}
+.reveal.reveal-in { opacity: 1; transform: none; }
+
 /* =========================================================
    MOBIELVRIENDELIJK — kleinere schermen
    ========================================================= */
@@ -653,6 +720,7 @@ img { max-width: 100%; display: block; }
   .who-grid { grid-template-columns: 1fr; gap: 28px; }
   .region-grid { grid-template-columns: 1fr; gap: 32px; }
   .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 18px; }
+  .stat { border-right: 0; }
 }
 
 @media (max-width: 720px) {
@@ -694,4 +762,5 @@ img { max-width: 100%; display: block; }
 /* Respecteer 'minder beweging'-voorkeur */
 @media (prefers-reduced-motion: reduce) {
   * { scroll-behavior: auto; transition: none !important; }
+  .reveal { opacity: 1 !important; transform: none !important; }
 }

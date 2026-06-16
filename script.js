@@ -67,4 +67,35 @@ document.addEventListener("DOMContentLoaded", function () {
   if (jaar) {
     jaar.textContent = new Date().getFullYear();
   }
+
+  /* ---------- 4) SUBTIEL VERSCHIJNEN BIJ SCROLLEN ---------- */
+  var wilBeweging = !window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  if (wilBeweging && "IntersectionObserver" in window) {
+    // Welke elementen mooi mogen 'invliegen' wanneer ze in beeld komen.
+    var selectie = ".section-head, .card, .step, .why-item, .who-text, .who-photo, " +
+      ".region-text, .region-card, .reviews-new, .coming-soon, .faq, " +
+      ".contact-intro, .contact-form, .value-note, .care-inner";
+    var elementen = document.querySelectorAll(selectie);
+
+    // Kleine, oplopende vertraging per groepje voor een verzorgd effect.
+    elementen.forEach(function (el) {
+      el.classList.add("reveal");
+      var buren = el.parentElement ? el.parentElement.children : [el];
+      var index = Array.prototype.indexOf.call(buren, el);
+      var vertraging = Math.min(index, 4) * 80; // max 320ms
+      el.style.transitionDelay = vertraging + "ms";
+    });
+
+    var waarnemer = new IntersectionObserver(function (items, obs) {
+      items.forEach(function (item) {
+        if (item.isIntersecting) {
+          item.target.classList.add("reveal-in");
+          obs.unobserve(item.target); // één keer is genoeg
+        }
+      });
+    }, { threshold: 0.12, rootMargin: "0px 0px -40px 0px" });
+
+    elementen.forEach(function (el) { waarnemer.observe(el); });
+  }
 });
