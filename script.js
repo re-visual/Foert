@@ -68,6 +68,17 @@ document.addEventListener("DOMContentLoaded", function () {
     jaar.textContent = new Date().getFullYear();
   }
 
+  /* ---------- VOOR/NA-SLIDER IN DE HERO ---------- */
+  var slider = document.getElementById("baSlider");
+  var range = document.getElementById("baRange");
+  if (slider && range) {
+    var updateSlider = function () {
+      slider.style.setProperty("--pos", range.value + "%");
+    };
+    range.addEventListener("input", updateSlider);
+    updateSlider(); // beginstand (50%) meteen toepassen
+  }
+
   /* ---------- 4) SUBTIEL VERSCHIJNEN BIJ SCROLLEN ---------- */
   var wilBeweging = !window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 

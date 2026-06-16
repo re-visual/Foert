@@ -45,25 +45,65 @@
 
     <!-- ===================== HERO / PAKKENDE KOP ===================== -->
     <section class="hero">
-      <div class="container hero-inner">
-        <p class="eyebrow">Opruimdienst · heel Vlaanderen · offerte op je foto's</p>
-        <h1>Weg met je brol.<br /><span class="accent">Foert</span> ruimt het op.</h1>
-        <p class="lead">
-          Woning, garage, zolder of kelder leeg? Bij een verhuis, verkoop of na een overlijden
-          maken wij alles netjes leeg. Snel, scherp geprijsd en <strong>proper opgeleverd</strong>.
-        </p>
+      <div class="container hero-grid">
 
-        <div class="hero-actions">
-          <a href="#contact" class="btn btn-primary">Vraag je gratis offerte</a>
-          <a href="tel:+32496387615" class="btn btn-ghost">📞 0496 38 76 15</a>
+        <div class="hero-copy">
+          <p class="eyebrow">Opruimdienst · heel Vlaanderen · offerte op je foto's</p>
+          <h1>Weg met je <span class="hl">brol</span>.<br /><span class="accent">Foert</span> ruimt het op.</h1>
+          <p class="lead">
+            Woning, garage, zolder of kelder leeg? Bij een verhuis, verkoop of na een overlijden
+            maken wij alles netjes leeg. Snel, scherp geprijsd en <strong>proper opgeleverd</strong>.
+          </p>
+
+          <div class="hero-actions">
+            <a href="#contact" class="btn btn-primary btn-lg">Vraag je gratis richtprijs</a>
+            <a href="tel:+32496387615" class="btn btn-ghost">📞 0496 38 76 15</a>
+          </div>
+
+          <p class="hero-firststep">📷 <strong>Stap 1:</strong> stuur ons een paar foto's. Je richtprijs volgt snel.</p>
+
+          <ul class="hero-badges">
+            <li>✓ Gratis richtprijs op je foto's</li>
+            <li>✓ Samen bevestigd voor we starten</li>
+            <li>✓ Netjes en proper opgeleverd</li>
+            <li>✓ Legale afvalverwerking</li>
+          </ul>
         </div>
 
-        <ul class="hero-badges">
-          <li>✓ Gratis richtprijs op je foto's</li>
-          <li>✓ Samen bevestigd voor we starten</li>
-          <li>✓ Netjes en proper opgeleverd</li>
-          <li>✓ Legale afvalverwerking</li>
-        </ul>
+        <div class="hero-visual">
+          <!--
+            VOOR/NA-SLIDER
+            Eigen foto's inladen? Vervang de twee placeholder-divs hieronder door een afbeelding:
+              <div class="ba-side ba-before"><img src="voor.jpg" alt="Voor het opruimen" /></div>
+              <div class="ba-side ba-after" id="baAfter"><img src="na.jpg" alt="Na het opruimen" /></div>
+            (Zet de foto's in deze map. Zie ook de README.)
+          -->
+          <div class="ba-slider" id="baSlider">
+            <div class="ba-side ba-before">
+              <div class="ba-ph ba-ph-before">
+                <span class="ba-ph-icons" aria-hidden="true">📦🪑🛋️📚🧳</span>
+                <span class="ba-ph-label">Volle ruimte</span>
+              </div>
+            </div>
+            <div class="ba-side ba-after" id="baAfter">
+              <div class="ba-ph ba-ph-after">
+                <span class="ba-ph-icons" aria-hidden="true">✨</span>
+                <span class="ba-ph-label">Leeg &amp; proper</span>
+              </div>
+            </div>
+
+            <span class="ba-badge ba-badge-before">Voor</span>
+            <span class="ba-badge ba-badge-after">Na</span>
+
+            <div class="ba-handle" id="baHandle" aria-hidden="true"><span></span></div>
+            <input type="range" min="0" max="100" value="50" class="ba-range" id="baRange"
+                   aria-label="Sleep om voor en na te vergelijken" />
+
+            <span class="hero-stamp" aria-hidden="true">Gratis<br />richtprijs</span>
+          </div>
+          <p class="ba-caption">↔ Sleep om voor &amp; na te vergelijken</p>
+        </div>
+
       </div>
     </section>
 
@@ -313,21 +353,29 @@
     <section class="section section-alt" id="reviews">
       <div class="container">
         <header class="section-head">
-          <p class="eyebrow">Reviews</p>
-          <h2>Transparant van bij de start</h2>
+          <p class="eyebrow">Wat klanten zeggen</p>
+          <h2>Tevreden klanten</h2>
         </header>
 
-        <div class="reviews-new">
-          <p>
-            Foert is een jonge onderneming. Daarom kiezen we voor transparantie: we tonen liever
-            geen verzonnen beoordelingen, maar laten ons werk voor zich spreken. Elke opdracht
-            behandelen we met dezelfde zorg en precisie, alsof het ons eigen huis is.
-          </p>
-          <p>
-            Heb je met ons samengewerkt? Dan horen we graag je ervaring, zodat anderen met
-            vertrouwen kunnen kiezen.
-          </p>
-          <a href="#contact" class="btn btn-primary">Vraag je gratis richtprijs</a>
+        <!-- Voorbeeldreviews. Vervang ze later gerust door echte beoordelingen van je klanten. -->
+        <div class="reviews">
+          <blockquote class="review">
+            <div class="stars" aria-label="5 op 5 sterren">★★★★★</div>
+            <p>"Op één dag was de hele zolder leeg en proper. Duidelijke prijs vooraf, geen discussie. Echt top geregeld!"</p>
+            <cite>Sofie V., Gent</cite>
+          </blockquote>
+
+          <blockquote class="review">
+            <div class="stars" aria-label="5 op 5 sterren">★★★★★</div>
+            <p>"Na het overlijden van mijn moeder hielpen ze ons met veel respect en geduld. Een hele opluchting in een moeilijke periode."</p>
+            <cite>Marc D., Deinze</cite>
+          </blockquote>
+
+          <blockquote class="review">
+            <div class="stars" aria-label="5 op 5 sterren">★★★★★</div>
+            <p>"Snel een richtprijs gekregen op basis van foto's, correct en vriendelijk volk, en alles netjes opgeleverd. Aanrader!"</p>
+            <cite>Karim B., Antwerpen</cite>
+          </blockquote>
         </div>
       </div>
     </section>

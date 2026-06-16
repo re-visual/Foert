@@ -35,27 +35,21 @@ Veelgevraagde wijzigingen:
 - **Kleuren**: bovenaan `styles.css` staat een blok `:root` met de kleuren.
   Bv. `--brand: #ff5a1f;` is het oranje accent. Pas de kleurcode aan om de look te wijzigen.
 
-## Foto's toevoegen (voor/na)
+## Voor/na-slider op het voorblad (hero)
 
-1. Zet je foto's in deze map (bv. `voor1.jpg` en `na1.jpg`).
-2. In `index.html`, zoek het stuk `<!-- VOOR / NA FOTO'S -->`.
-3. Vervang een placeholder-vakje zoals dit:
+Bovenaan de site staat een **voor/na-slider** met een nette placeholder.
+Je eigen foto's inladen?
 
-   ```html
-   <div class="ba-img placeholder">
-     <span class="ba-tag">Voor</span>
-     Foto hier
-   </div>
-   ```
-
-   door:
+1. Zet twee foto's in deze map, bv. `voor.jpg` (volle ruimte) en `na.jpg` (leeg en proper).
+2. In `index.html`, zoek het stuk `VOOR/NA-SLIDER`.
+3. Vervang de twee placeholder-blokken door je foto's:
 
    ```html
-   <div class="ba-img">
-     <span class="ba-tag">Voor</span>
-     <img src="voor1.jpg" alt="Zolder voor het opruimen" />
-   </div>
+   <div class="ba-side ba-before"><img src="voor.jpg" alt="Voor het opruimen" /></div>
+   <div class="ba-side ba-after" id="baAfter"><img src="na.jpg" alt="Na het opruimen" /></div>
    ```
+
+   Gebruik bij voorkeur twee foto's van **hetzelfde standpunt**, zodat het schuiven mooi klopt.
 
 ## Het contactformulier laten werken
 
