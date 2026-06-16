@@ -389,47 +389,49 @@ img { max-width: 100%; display: block; }
 .region-text h2 { font-size: clamp(1.9rem, 4.5vw, 2.8rem); }
 .region-text p { color: #c7ccd6; }
 .region-text p strong { color: var(--white); }
-.region-list {
+.region-card {
+  background: var(--ink-2);
+  border: 1px solid rgba(255, 255, 255, .08);
+  border-radius: var(--radius);
+  padding: 34px 30px;
+  text-align: center;
+  box-shadow: var(--shadow-lg);
+}
+.region-pin { font-size: 2rem; display: block; margin-bottom: 6px; }
+.region-card h3 { color: var(--white); font-size: 1.5rem; margin-bottom: 18px; }
+.region-pills {
   list-style: none;
   padding: 0;
-  margin: 16px 0 26px;
-  display: grid;
+  margin: 0 0 16px;
+  display: flex;
+  flex-wrap: wrap;
   gap: 10px;
+  justify-content: center;
 }
-.region-list li {
-  padding-left: 26px;
-  position: relative;
+.region-pills li {
+  background: rgba(255, 255, 255, .06);
+  border: 1px solid rgba(255, 255, 255, .14);
   color: #e4e7ec;
-}
-.region-list li::before {
-  content: "📍";
-  position: absolute;
-  left: 0;
-}
-.region-visual { display: grid; place-items: center; }
-.region-badge {
-  width: 220px;
-  height: 220px;
-  border-radius: 50%;
-  background: radial-gradient(circle at 30% 30%, var(--brand), var(--brand-dark));
-  display: grid;
-  place-items: center;
-  text-align: center;
-  box-shadow: 0 20px 50px rgba(255,90,31,.35);
-}
-.region-big {
-  font-family: "Fraunces", serif;
-  font-weight: 800;
-  font-size: 4rem;
-  color: var(--white);
-  line-height: 1;
-}
-.region-small {
-  display: block;
-  color: #fff;
+  padding: 8px 14px;
+  border-radius: 999px;
   font-weight: 600;
-  font-size: .9rem;
-  margin-top: 6px;
+  font-size: .92rem;
+}
+.region-foot { color: #98a0ad; margin: 0; font-style: italic; }
+
+/* ---------- WAARDE VERREKENEN ---------- */
+.section-value { background: var(--brand-soft); }
+.value-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+.value-note {
+  text-align: center;
+  color: var(--muted);
+  margin: 28px auto 0;
+  max-width: 640px;
+  font-size: .95rem;
 }
 
 /* ---------- VOOR / NA ---------- */
@@ -615,6 +617,7 @@ img { max-width: 100%; display: block; }
 @media (max-width: 980px) {
   .cards { grid-template-columns: repeat(2, 1fr); }
   .steps { grid-template-columns: repeat(2, 1fr); }
+  .value-grid { grid-template-columns: 1fr; }
 }
 
 @media (max-width: 900px) {
@@ -623,7 +626,6 @@ img { max-width: 100%; display: block; }
   .contact-grid { grid-template-columns: 1fr; gap: 32px; }
   .who-grid { grid-template-columns: 1fr; gap: 28px; }
   .region-grid { grid-template-columns: 1fr; gap: 32px; }
-  .region-visual { order: -1; }
   .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 18px; }
 }
 
