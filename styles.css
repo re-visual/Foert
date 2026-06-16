@@ -199,7 +199,12 @@ img { max-width: 100%; display: block; }
 .hero-badges li { color: var(--ink); }
 
 /* ---------- USP / CIJFER-STRIP ---------- */
-.stats { background: var(--ink); color: var(--white); }
+.stats {
+  background: var(--paper-2);
+  color: var(--ink);
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
 .stats-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -218,7 +223,7 @@ img { max-width: 100%; display: block; }
 .stat-label {
   display: block;
   font-size: .9rem;
-  color: #c7ccd6;
+  color: var(--muted);
   margin-top: 4px;
 }
 
@@ -535,6 +540,8 @@ img { max-width: 100%; display: block; }
 .contact-intro h2 { font-size: clamp(1.9rem, 4.5vw, 2.8rem); }
 .contact-intro p { color: #c7ccd6; }
 .contact-intro p strong { color: var(--white); }
+.contact-photos { font-size: .95rem; }
+.contact-photos a { color: var(--brand); text-decoration: none; font-weight: 700; }
 .contact-list {
   list-style: none;
   padding: 0;

@@ -53,7 +53,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
       if (nietGekoppeld) {
         e.preventDefault();
-        note.textContent = "Bedankt " + naam + "! Je aanvraag is genoteerd. (Tip aan de eigenaar: koppel het formulier — zie README.)";
+        note.textContent = "Bedankt " + naam + "! Je aanvraag is genoteerd. (Tip aan de eigenaar: koppel het formulier, zie README.)";
         note.className = "form-note success";
         form.reset();
       }
