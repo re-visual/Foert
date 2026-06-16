@@ -11,6 +11,7 @@ Een eenvoudige one-page website voor **Foert**, opruimdienst in regio Gent.
 | `index.html`   | De **inhoud** van de site: alle teksten en secties.                  |
 | `styles.css`   | De **opmaak**: kleuren, lettertypes en de mobiele weergave.          |
 | `script.js`    | Een beetje **interactie**: het menu op gsm en het contactformulier.  |
+| `live-refresh.js` | **Hulpje tijdens het bouwen**: ververst de live site vanzelf. Mag weg voor de definitieve versie. |
 | `README.md`    | Dit bestand — de uitleg.                                             |
 
 ## De site bekijken
@@ -80,3 +81,20 @@ Je kan de site gratis online plaatsen, bijvoorbeeld met:
 - **GitHub Pages** — als deze code op GitHub staat.
 
 Vraag gerust om hulp bij deze stap.
+
+## De site live laten meebewegen terwijl je prompt
+
+De site staat op GitHub. Zet **GitHub Pages** aan zodat elke wijziging vanzelf live gaat:
+
+1. Ga naar **github.com/re-visual/Foert → Settings → Pages**.
+2. Bij **Source**: kies **"Deploy from a branch"**.
+3. Kies branch **`claude/zen-wozniak-r97nz9`**, map **`/ (root)`**, en **Save**.
+4. Na ~1 minuut staat je site live op: **https://re-visual.github.io/Foert/**
+
+Vanaf dan: jij prompt → de wijziging wordt gepusht → na ~30–60s werkt de live site
+zichzelf bij. Dankzij `live-refresh.js` herlaadt de pagina automatisch zodra er iets
+verandert (je hoeft dus niet zelf te verversen).
+
+> **Let op:** gratis GitHub Pages werkt enkel als de repo **openbaar (public)** is.
+> **Klaar met bouwen?** Verwijder dan in `index.html` de regel
+> `<script src="live-refresh.js"></script>` zodat de publieke site niet blijft herladen.
