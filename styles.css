@@ -60,6 +60,16 @@ img { max-width: 100%; display: block; }
   color: var(--brand-dark);
   margin: 0 0 .6em;
 }
+/* terugkerend Foert-merkteken: bezempje vóór elk sectielabel */
+.eyebrow::before {
+  content: "";
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  margin-right: 8px;
+  vertical-align: -2px;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23ff5a1f'%3E%3Crect x='12.1' y='2.8' width='1.8' height='9' rx='.9'/%3E%3Crect x='9.3' y='10.6' width='7.4' height='2.1' rx='1'/%3E%3Cpath d='M9.6 12.8H16.4L18.2 20.3H7.8Z'/%3E%3Ccircle cx='4.4' cy='7.6' r='1.05'/%3E%3Ccircle cx='6.7' cy='5.2' r='.75'/%3E%3C/svg%3E") no-repeat center / contain;
+}
 
 .accent { color: var(--brand); }
 
@@ -287,6 +297,22 @@ img { max-width: 100%; display: block; }
   text-align: center;
 }
 .section-head h2 { font-size: clamp(1.9rem, 4.5vw, 2.9rem); }
+/* terugkerende Foert-veeg met stofjes onder elke sectietitel */
+.section-head h2::after,
+.who-text h2::after,
+.region-text h2::after,
+.contact-intro h2::after {
+  content: "";
+  display: block;
+  width: 84px;
+  height: 16px;
+  margin: 16px auto 0;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 84 16' fill='none'%3E%3Cpath d='M2 11 Q22 2 44 8' stroke='%23ff5a1f' stroke-width='3' stroke-linecap='round'/%3E%3Ccircle cx='55' cy='7' r='3' fill='%23ff5a1f'/%3E%3Ccircle cx='65' cy='6' r='2.2' fill='%23ff8a5c'/%3E%3Ccircle cx='74' cy='5' r='1.5' fill='%23ffb38f'/%3E%3C/svg%3E") no-repeat center / contain;
+}
+/* bij linksuitgelijnde titels staat de veeg ook links */
+.who-text h2::after,
+.region-text h2::after,
+.contact-intro h2::after { margin: 16px 0 0; }
 .section-sub { color: var(--muted); margin: 0; }
 .section-foot {
   text-align: center;
